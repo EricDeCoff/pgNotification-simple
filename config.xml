@@ -44,4 +44,5 @@
     <gap:splash src="res/screen/ios/screen-ipad-landscape.png"     gap:platform="ios"     width="1024" height="768" />
 	<gap:plugin name="com.phonegap.plugins.pushplugin"/>
     <gap:plugin name="org.apache.cordova.device"/>
+    <gap:plugin name="org.apache.cordova.media"/>    
 </widget>

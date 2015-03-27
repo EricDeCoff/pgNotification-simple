@@ -60,14 +60,12 @@ function onNotificationAPN(e) {
          $("#app-status-ul").append('<li>push-notification: ' + e.alert + '</li>');
          // showing an alert also requires the org.apache.cordova.dialogs plugin
          navigator.notification.alert(e.alert);
-    }
-/*                    
+    }                    
     if (e.sound) {
         // playing a sound also requires the org.apache.cordova.media plugin
         var snd = new Media(e.sound);
         snd.play();
-    }
-*/                
+    }             
     if (e.badge) {
         pushNotification.setApplicationIconBadgeNumber(successHandler, e.badge);
     }
@@ -100,12 +98,10 @@ function onNotificationGCM(e) {
                         // On Amazon FireOS all custom attributes are contained within payload
                         var soundfile = e.soundname || e.payload.sound;
                         // if the notification contains a soundname, play it.
-                        // playing a sound also requires the org.apache.cordova.media plugin
-/*                
+                        // playing a sound also requires the org.apache.cordova.media plugin                
                         var my_media = new Media("/android_asset/www/"+ soundfile);
 
-                        my_media.play();
-*/                        
+                        my_media.play();                        
             }
             else
             {	// otherwise we were launched because the user touched a notification in the notification tray.
