@@ -11,6 +11,7 @@
 
 	<gap:plugin name="org.apache.cordova.device" />
 	<gap:plugin name="org.apache.cordova.media" />
+    <gap:plugin name="https://github.com/phonegap-build/PushPlugin.git" />
             
     <content src="index.html" />
     <access origin="*" />
