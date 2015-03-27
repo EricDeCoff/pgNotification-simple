@@ -1,18 +1,41 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ericdecoff.pgNotification" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget 
+        xmlns="http://www.w3.org/ns/widgets" 
+        xmlns:cdv="http://cordova.apache.org/ns/1.0"
+        id="com.ericdecoff.pgNotification" 
+        version="0.0.1" 
+    >
     <name>pgNotification</name>
     <description>
         A simple pgNotificatio Test
     </description>
-    <author email="ericdecoff@gmail.com" href="http://cordova.io">
-        Apache Cordova Team
-    </author>
+    <author email="ericdecoff@gmail.com" href="http://cordova.io">Eric DeCoff</author>
+    
 	<!-- Plugins -->
 
 	<gap:plugin name="org.apache.cordova.device" />
 	<gap:plugin name="org.apache.cordova.media" />
     <gap:plugin name="https://github.com/phonegap-build/PushPlugin.git" />
-            
+
+    <!-- PLATFORM SELECTION -->
+
+    <gap:platform name="android" />
+
+    <!-- PHONEGAP API FEATURES PREFERENCES -->
+        
+    <preference name="permissions" value="none"/>
+    <!--
+    <feature name="http://api.phonegap.com/1.0/battery"/>
+    <feature name="http://api.phonegap.com/1.0/camera"/>
+    <feature name="http://api.phonegap.com/1.0/contacts"/>
+    <feature name="http://api.phonegap.com/1.0/file"/>
+    <feature name="http://api.phonegap.com/1.0/geolocation"/>
+    <feature name="http://api.phonegap.com/1.0/media"/>
+    <feature name="http://api.phonegap.com/1.0/network"/>
+    <feature name="http://api.phonegap.com/1.0/notification"/>
+    -->
+
     <content src="index.html" />
+
     <access origin="*" />
 </widget>
