@@ -49,9 +49,18 @@ NOTE:
 		      $("#app-status-ul").append('<li>registering ' + device.platform + '</li>');
                 	if (device.platform == 'android' || device.platform == 'Android' ||
                             device.platform == 'amazon-fireos' ) {
-			pushNotification.register(successHandler, errorHandler, {"senderID":"661780372179","ecb":"onNotificationGCM"});		// required!
-					} else {
-                    	pushNotification.register(tokenHandler, errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});	// required!
+			pushNotification.register(successHandler, errorHandler, 
+                {
+                    "senderID":"hybrid-chariot-87315",
+                    "ecb":"onNotificationGCM"});		// required!
+				} else {
+                    	pushNotification.register(tokenHandler, errorHandler,
+                            {
+                                "badge":"true",
+                                "sound":"true",
+                                "alert":"true",
+                                "ecb":"onNotificationAPN"
+                            });	// required!
                 	}
                 }
 				catch(err) 

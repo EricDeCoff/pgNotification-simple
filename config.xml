@@ -7,6 +7,11 @@
     <author email="ericdecoff@gmail.com" href="http://cordova.io">
         Apache Cordova Team
     </author>
+	<!-- Plugins -->
+
+	<gap:plugin name="org.apache.cordova.device" />
+	<gap:plugin name="org.apache.cordova.media" />
+            
     <content src="index.html" />
     <access origin="*" />
 </widget>
