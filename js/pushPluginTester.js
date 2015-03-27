@@ -1,5 +1,5 @@
 var pushNotification;
-var gcmID = "hybrid-chariot-87315";
+var gcmID = "646224033141";
 
 function onDeviceReady() {
     $("#app-status-ul").append('<li>deviceready event received</li>');
@@ -32,7 +32,7 @@ function onDeviceReady() {
             device.platform == 'amazon-fireos' ) {
                 pushNotification.register(successHandler, errorHandler,
                     {
-                        "senderID":gcmID,
+                        "senderID":"646224033141",
                         "ecb":"onNotificationGCM"}
                 );
         } else {
