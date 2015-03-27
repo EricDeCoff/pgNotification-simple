@@ -1,8 +1,8 @@
 var pushNotification;
-var gcmID = "646224033141";
+var gcmNumber = "646224033141";
 
 function onDeviceReady() {
-    $("#app-status-ul").append('<li>deviceready event received</li>');
+    $("#app-status-ul").append('<li>EVENT -> RECIEVED: <ul><li>deviceready</li></ul> </li>');
 
     document.addEventListener("backbutton", function(e)
     {
@@ -32,7 +32,7 @@ function onDeviceReady() {
             device.platform == 'amazon-fireos' ) {
                 pushNotification.register(successHandler, errorHandler,
                     {
-                        "senderID":"646224033141",
+                        "senderID":gcmNumber,
                         "ecb":"onNotificationGCM"}
                 );
         } else {
@@ -73,15 +73,14 @@ function onNotificationAPN(e) {
 
 // handle GCM notifications for Android
 function onNotificationGCM(e) {
-    $("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
+    $("#app-status-ul").append('<li>EVENT -> RECEIVED:<ul><li>' + e.event + '</li></ul></li>');
 
     switch( e.event )
     {
         case 'registered':
         if ( e.regid.length > 0 )
         {
-            $("#app-status-ul").append('<li>REGISTERED -> REGID:' + e.regid + "</li>");
-            $("#app-reg-id").val(e.regid);
+            $("#app-status-ul").append('<li>REGISTERED -> REGID:<ul><li>' + e.regid + "</li></ul></li>");
             // Your GCM push server needs to know the regID before it can push to this device
             // here is where you might want to send it the regID for later use.
             console.log("regID = " + e.regid);
@@ -112,19 +111,23 @@ function onNotificationGCM(e) {
                 $("#app-status-ul").append('<li>--BACKGROUND NOTIFICATION--' + '</li>');
             }
 
-            $("#app-status-ul").append('<li>MESSAGE -> MSG: ' + e.payload.message + '</li>');
+            $("#app-status-ul").append('<li>MESSAGE -> MSG: <ul><li>' + 
+                                       e.payload.message + '</li></ul></li>');
             //android only
-            $("#app-status-ul").append('<li>MESSAGE -> MSGCNT: ' + e.payload.msgcnt + '</li>');
+            $("#app-status-ul").append('<li>MESSAGE -> MSGCNT: <ul><li>' + 
+                                       e.payload.msgcnt + '</li></ul></li>');
             //amazon-fireos only
-            $("#app-status-ul").append('<li>MESSAGE -> TIMESTAMP: ' + e.payload.timeStamp + '</li>');
+            $("#app-status-ul").append('<li>FIREOS -> TIMESTAMP: <ul><li>' + 
+                                       e.payload.timeStamp + '</ul></li></li>');
         break;
 
         case 'error':
-            $("#app-status-ul").append('<li>ERROR -> MSG:' + e.msg + '</li>');
+            $("#app-status-ul").append('<li>ERROR -> MSG:<ul><li>' + e.msg + '</li></ul></li>');
         break;
 
         default:
-            $("#app-status-ul").append('<li>EVENT -> Unknown, an event was received and we do not know what it is</li>');
+            $("#app-status-ul").append('<li>EVENT -> UNKOWN:<ul><li>'+
+                                       e.event+'</li></ul></li>');
         break;
     }
 }
@@ -137,6 +140,7 @@ function tokenHandler (result) {
 
 function successHandler (result) {
     $("#app-status-ul").append('<li>success:'+ result +'</li>');
+    $("#app-status-ul").append('<li>please wait for event callback</li>');    
 }
 
 function errorHandler (error) {
